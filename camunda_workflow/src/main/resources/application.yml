@@ -1,0 +1,18 @@
+#mysql 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.206.145:3306/camunda?serverTimezone=GMT%2B8&autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 726999
+#服务端口
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+  #ACT_RE_*:RE代表存repository。带有此前缀的表包含“静态”信息，例如流程定义和流程资源（图像、规则等）。
+  #ACT_RU_*:RU代表runtime。这些是运行时表，包含流程实例、用户任务、变量、作业等的运行时数据。引擎仅在流程实例执行期间存储运行时数据，并在流程实例结束时删除记录。这使运行时表既小又快。
+  #ACT_ID_*:ID代表identity。这些表包含身份信息，例如用户、组等。
+  #ACT_HI_*:HI代表history。这些是包含历史数据的表，例如过去的流程实例、变量、任务等。
+  #ACT_GE_*：GE代表 general一般数据，用于各种用例
